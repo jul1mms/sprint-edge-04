@@ -36,8 +36,9 @@ O front-end permite que os usuários visualizem e gerenciem os dados coletados p
 • Para os prédios que fecharem negócios através do site/app da Ecobuild, a empresa fornecerá os dispositivos Arduino Uno e o sensor DHT11 pré-configurados.  
 • Os prédios devem conectar o Arduino Uno aos seus sistemas de energia e Wi-Fi.  
 • A configuração inicial do dispositivo IoT incluirá a seleção dos limites de temperatura e umidade desejados.  
+  - Como base, recomenda-se configurar os limites de temperatura entre 23°C e 26°C, e os limites de umidade entre 50% e 60% para garantir um ambiente confortável e saudável.  
 • Os dados coletados pelo Arduino Uno serão automaticamente enviados para a plataforma Tago.io.  
-• Os usuários poderão acessar a interface web da Ecobuild para monitorar os dados e receber alertas, conforme necessário.
+• Os usuários poderão acessar a interface web da Ecobuild para monitorar os dados e receber alertas, conforme necessário.  
 
 # Requisitos e Dependências
 • Arduino Uno com Sensor DHT11 (fornecido pela Ecobuild).  
