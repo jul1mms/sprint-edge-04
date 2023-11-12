@@ -33,19 +33,19 @@ O front-end permite que os usuários visualizem e gerenciem os dados coletados p
 3. **Alertas de Usuário:** Notificações e alertas visuais para os usuários quando os valores de temperatura e umidade estiverem fora dos limites, destacando a importância da ação imediata.
 
 # Instruções de Uso
-• Para os prédios que fecharem negócios através do site/app da Ecobuild, a empresa fornecerá os dispositivos Arduino Uno e o sensor DHT11 pré-configurados.
-• Os prédios devem conectar o Arduino Uno aos seus sistemas de energia e Wi-Fi.
-• A configuração inicial do dispositivo IoT incluirá a seleção dos limites de temperatura e umidade desejados.
-• Os dados coletados pelo Arduino Uno serão automaticamente enviados para a plataforma Tago.io.
+• Para os prédios que fecharem negócios através do site/app da Ecobuild, a empresa fornecerá os dispositivos Arduino Uno e o sensor DHT11 pré-configurados.  
+• Os prédios devem conectar o Arduino Uno aos seus sistemas de energia e Wi-Fi.  
+• A configuração inicial do dispositivo IoT incluirá a seleção dos limites de temperatura e umidade desejados.  
+• Os dados coletados pelo Arduino Uno serão automaticamente enviados para a plataforma Tago.io.  
 • Os usuários poderão acessar a interface web da Ecobuild para monitorar os dados e receber alertas, conforme necessário.
 
 # Requisitos e Dependências
-• Arduino Uno com Sensor DHT11 (fornecido pela Ecobuild).
-• Plataforma IoT (Tago.io).
-• Node-RED para processamento de dados.
-• Servidor de Banco de Dados (MongoDB, MySQL, etc.).
-• Desenvolvimento de Interface Web (HTML, CSS, JavaScript).
-• Servidor Web para hospedar a interface.
-• Conexão de Internet confiável no prédio verde.
+• Arduino Uno com Sensor DHT11 (fornecido pela Ecobuild).  
+• Plataforma IoT (Tago.io).  
+• Node-RED para processamento de dados.  
+• Servidor de Banco de Dados (MongoDB, MySQL, etc.).  
+• Desenvolvimento de Interface Web (HTML, CSS, JavaScript).  
+• Servidor Web para hospedar a interface.  
+• Conexão de Internet confiável no prédio verde.  
 
 Esta solução permitirá que os prédios verdes monitorados pelo Ecobuild cumpram regulamentações necessárias de edifícios verdes, garantindo um ambiente saudável e sustentável para seus ocupantes. Além disso, ajuda a demonstrar o compromisso da Ecobuild com a construção sustentável e a preservação ambiental.
