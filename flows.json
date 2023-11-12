@@ -1,0 +1,148 @@
+[
+    {
+        "id": "a981bf750a53a576",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ee69f98a68aa9898",
+        "type": "serial in",
+        "z": "a981bf750a53a576",
+        "name": "",
+        "serial": "4d925aa28db63efb",
+        "x": 250,
+        "y": 360,
+        "wires": [
+            [
+                "2c7bd3917fc1a0cd"
+            ]
+        ]
+    },
+    {
+        "id": "b9b6c75d81f30df2",
+        "type": "mqtt out",
+        "z": "a981bf750a53a576",
+        "name": "",
+        "topic": "dados",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "09e612a872e63d62",
+        "x": 770,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "a90fb742ae3406fb",
+        "type": "function",
+        "z": "a981bf750a53a576",
+        "name": "function 4",
+        "func": "// Function-2\n\n// Verifica se msg.payload é um objeto antes de prosseguir\nif (typeof msg.payload === 'object') {\n  var temperatura = msg.payload.temperatura;\n  var umidade = msg.payload.umidade;\n\n  // Verifica se os valores estão presentes e são válidos\n  if (temperatura !== undefined && umidade !== undefined && !isNaN(temperatura) && !isNaN(umidade)) {\n    // Criação do objeto JSON para ser enviado pelo MQTT\n    var mqttPayload = {\n      temperatura: temperatura,\n      umidade: umidade\n    };\n\n    msg.payload = mqttPayload;\n  } else {\n    node.error(\"Valores de temperatura ou umidade inválidos no payload.\");\n  }\n} else {\n  node.error(\"O payload não é um objeto.\");\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 360,
+        "wires": [
+            [
+                "b9b6c75d81f30df2"
+            ]
+        ]
+    },
+    {
+        "id": "4154776296865330",
+        "type": "json",
+        "z": "a981bf750a53a576",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 460,
+        "y": 220,
+        "wires": [
+            [
+                "a90fb742ae3406fb"
+            ]
+        ]
+    },
+    {
+        "id": "2c7bd3917fc1a0cd",
+        "type": "function",
+        "z": "a981bf750a53a576",
+        "name": "function 5",
+        "func": "// Remove os caracteres especiais de graus e porcentagem\nmsg.payload = msg.payload.replace(/[^\\x20-\\x7E]/g, '');\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 220,
+        "wires": [
+            [
+                "4154776296865330"
+            ]
+        ]
+    },
+    {
+        "id": "4d925aa28db63efb",
+        "type": "serial-port",
+        "serialport": "COM5",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "09e612a872e63d62",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mqtt.tago.io",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
